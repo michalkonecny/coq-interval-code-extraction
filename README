@@ -1,0 +1,22 @@
+
+## Without profiling
+
+### Compiling:
+ghc --make main.hs logistic_map_s_n.hs
+
+### Compiling via stack:
+stack exec ghc -- --make main.hs logistic_map_s_n.hs
+
+### Running:
+./main -200 100
+
+## With profiling
+
+### Compiling:
+ghc --make main.hs logistic_map_s_n.hs -prof -fprof-auto -rtsopts
+
+### Compiling via stack:
+stack exec ghc -- --make main.hs logistic_map_s_n.hs -prof -fprof-auto -rtsopts
+
+### Running:
+./main -200 100 +RTS -p
