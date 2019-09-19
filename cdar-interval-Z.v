@@ -98,8 +98,15 @@ Require ExtrHaskellBasic.
 Require ExtrHaskellZInteger.
 Require ExtrHaskellNatInteger.
 Extraction Language Haskell.
-
-
+Extract Inlined Constant Z.abs => "(Prelude.abs)".
+Extract Inlined Constant Z.geb => "(Prelude.>=)".
+Extract Inlined Constant Z.leb => "(Prelude.<=)".
+Extract Inlined Constant Z.gtb => "(Prelude.>)".
+Extract Inlined Constant Z.ltb => "(Prelude.<)".
+Extract Inlined Constant Z.opp => "(Prelude.negate)".
+Extract Inlined Constant Z.succ => "(Prelude.succ)".
+Extract Inlined Constant Z.pow_pos => "(Prelude.^)".
+Extract Inlined Constant Z.quotrem => "(Prelude.quotRem)".
 
 Definition test_mul := mulA (-10) (Approx 2 0 0) (Approx 1 1 (-1)).
 
@@ -118,7 +125,7 @@ Definition logistic_map_s_n s n :=
   let r := Approx 15 0 (-2) in
   logistic_map s x0 r n.
 
-Compute logistic_map_s_n (-10) 10.
+Compute logistic_map_s_n (-20) 10.
 
 Extraction "logistic_map_s_n" logistic_map_s_n.
 
